@@ -3,19 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Domain", "CustomERP.Domain\CustomERP.Domain.csproj", "{434419F1-F2D8-4991-9821-B2AE6EE39D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Domain", "CustomERP.Domain\CustomERP.Domain.csproj", "{434419F1-F2D8-4991-9821-B2AE6EE39D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Tests", "CustomERP.Tests\CustomERP.Tests.csproj", "{2AACD300-0032-4330-A095-B2593A11E6EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Tests", "CustomERP.Tests\CustomERP.Tests.csproj", "{2AACD300-0032-4330-A095-B2593A11E6EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Api", "CustomERP.Api\CustomERP.Api.csproj", "{1F3F97B4-C484-441E-9C40-01E27798F758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Api", "CustomERP.Api\CustomERP.Api.csproj", "{1F3F97B4-C484-441E-9C40-01E27798F758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Application", "CustomERP.Trucks.Application\CustomERP.Trucks.Application.csproj", "{FCBC4E46-566F-4173-8172-261886885130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Domain", "CustomERP.Trucks.Domain\CustomERP.Trucks.Domain.csproj", "{33B2652E-F238-468A-A401-D9DB3B046526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Infrastructure", "CustomERP.Trucks.Infrastructure\CustomERP.Trucks.Infrastructure.csproj", "{A6DDCF88-D067-4300-8E0B-4C81C037B313}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{434419F1-F2D8-4991-9821-B2AE6EE39D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +33,23 @@ Global
 		{1F3F97B4-C484-441E-9C40-01E27798F758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F3F97B4-C484-441E-9C40-01E27798F758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F3F97B4-C484-441E-9C40-01E27798F758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBC4E46-566F-4173-8172-261886885130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBC4E46-566F-4173-8172-261886885130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBC4E46-566F-4173-8172-261886885130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBC4E46-566F-4173-8172-261886885130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33B2652E-F238-468A-A401-D9DB3B046526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B2652E-F238-468A-A401-D9DB3B046526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B2652E-F238-468A-A401-D9DB3B046526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B2652E-F238-468A-A401-D9DB3B046526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE4D2E02-5048-435B-9B32-A6DDE09D819E}
 	EndGlobalSection
 EndGlobal

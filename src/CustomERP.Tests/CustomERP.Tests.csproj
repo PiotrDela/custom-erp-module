@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomERP.Domain\CustomERP.Domain.csproj" />
+    <ProjectReference Include="..\CustomERP.Trucks.Domain\CustomERP.Trucks.Domain.csproj" />
   </ItemGroup>
 
 </Project>

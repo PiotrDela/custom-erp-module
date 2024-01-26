@@ -1,4 +1,4 @@
-﻿namespace CustomERP.Domain;
+﻿namespace CustomERP.Domain.Trucks;
 
 public enum TrackUsageStatus
 {

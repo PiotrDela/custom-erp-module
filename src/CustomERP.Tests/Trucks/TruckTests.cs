@@ -1,8 +1,8 @@
-﻿using CustomERP.Domain;
-using CustomERP.Domain.Exceptions;
+﻿using CustomERP.Domain.Exceptions;
+using CustomERP.Domain.Trucks;
 using Xunit;
 
-namespace CustomERP.Tests;
+namespace CustomERP.Tests.Trucks;
 
 public class TruckTests
 {
@@ -12,7 +12,7 @@ public class TruckTests
     [MemberData(nameof(AllAvailableStatuses))]
     public void OutOfServiceStatusCanBeSetRegardlessOfTheTrackCurrentStatus(TrackUsageStatus currentStatus)
     {
-        var truck = Truck.CreateNew("ABC123", "Ford transit", "Has extra space in the back", currentStatus);
+        var truck = TruckFactory.Create(currentStatus);
 
         truck.ChangeStatus(TrackUsageStatus.OutOfService);
 
@@ -23,7 +23,7 @@ public class TruckTests
     [MemberData(nameof(AllAvailableStatuses))]
     public void EachStatusCanBeSetCurrentStatusIsOutOfService(TrackUsageStatus newStatus)
     {
-        var truck = Truck.CreateNew("ABC123", "Ford transit", "Has extra space in the back", TrackUsageStatus.OutOfService);
+        var truck = TruckFactory.Create(TrackUsageStatus.OutOfService);
 
         truck.ChangeStatus(newStatus);
 
@@ -37,7 +37,7 @@ public class TruckTests
     [InlineData(TrackUsageStatus.Returning, TrackUsageStatus.Loading)]
     public void ChangingStatusAccordingToAllowedOrderTests(TrackUsageStatus currentStatus, TrackUsageStatus newStatus)
     {
-        var truck = Truck.CreateNew("ABC123", "Ford transit", "Has extra space in the back", currentStatus);
+        var truck = TruckFactory.Create(currentStatus);
 
         truck.ChangeStatus(newStatus);
 
@@ -48,7 +48,7 @@ public class TruckTests
     [MemberData(nameof(InvalidNewStatusTestCases))]
     public void ChangingStatusToNotAllowedTests(TrackUsageStatus currentStatus, TrackUsageStatus newStatus)
     {
-        var truck = Truck.CreateNew("ABC123", "Ford transit", "Has extra space in the back", currentStatus);
+        var truck = TruckFactory.Create(currentStatus);
 
         Assert.Throws<BusinessRuleValidationException>(() => truck.ChangeStatus(newStatus));
     }
