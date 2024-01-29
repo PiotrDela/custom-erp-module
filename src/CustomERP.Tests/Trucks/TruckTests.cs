@@ -50,7 +50,7 @@ public class TruckTests
     {
         var truck = TruckFactory.Create(currentStatus);
 
-        Assert.Throws<BusinessRuleValidationException>(() => truck.ChangeStatus(newStatus));
+        Assert.Throws<BusinessRuleViolationException>(() => truck.ChangeStatus(newStatus));
     }
 
     public static IEnumerable<object[]> InvalidNewStatusTestCases()

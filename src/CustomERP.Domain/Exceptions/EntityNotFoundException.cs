@@ -1,7 +1,7 @@
 ﻿namespace CustomERP.Domain.Exceptions
 {
     [Serializable]
-    public class EntityNotFoundException : DomainException
+    public class EntityNotFoundException : Exception
     {
         public EntityNotFoundException() { }
         public EntityNotFoundException(string message) : base(message) { }

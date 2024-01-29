@@ -6,10 +6,16 @@ namespace CustomERP.Trucks.Domain;
 
 public class Truck: Entity
 {
-    public static Truck CreateNew(string code, string name, string description = null, TrackUsageStatus usageStatus = TrackUsageStatus.OutOfService)
+    public static Truck Create(string code, string name, ITruckCodeUniquenessConstraint uniqueConstraint, string description = null, TrackUsageStatus usageStatus = TrackUsageStatus.OutOfService)
     {
-        var truckId = new TruckId(Guid.NewGuid());
         var truckCode = TruckCode.Create(code);
+
+        if (uniqueConstraint.IsInUse(truckCode))
+        {
+            throw new DuplicatedEntityException("Truck code already in use");
+        }
+
+        var truckId = new TruckId(Guid.NewGuid());
         return new Truck(truckId, truckCode, name, description, usageStatus);
     }
 
@@ -44,16 +50,16 @@ public class Truck: Entity
         switch (UsageStatus)
         {
             case TrackUsageStatus.Loading:
-                if (status != TrackUsageStatus.ToJob) throw new BusinessRuleValidationException();
+                if (status != TrackUsageStatus.ToJob) throw new BusinessRuleViolationException();
                 break;
             case TrackUsageStatus.ToJob:
-                if (status != TrackUsageStatus.AtJob) throw new BusinessRuleValidationException();
+                if (status != TrackUsageStatus.AtJob) throw new BusinessRuleViolationException();
                 break;
             case TrackUsageStatus.AtJob:
-                if (status != TrackUsageStatus.Returning) throw new BusinessRuleValidationException();
+                if (status != TrackUsageStatus.Returning) throw new BusinessRuleViolationException();
                 break;
             case TrackUsageStatus.Returning:
-                if (status != TrackUsageStatus.Loading) throw new BusinessRuleValidationException();
+                if (status != TrackUsageStatus.Loading) throw new BusinessRuleViolationException();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(status));

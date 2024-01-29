@@ -22,7 +22,8 @@ public class ExceptionHandlingMiddleware
             {
                 case FormatException:
                 case EntityNotFoundException:
-                case BusinessRuleValidationException:
+                case BusinessRuleViolationException:
+                case DuplicatedEntityException:
                     var statusCode = GetStatusCode(exception);
 
                     context.Response.ContentType = "application/json";
@@ -44,8 +45,10 @@ public class ExceptionHandlingMiddleware
                 return HttpStatusCode.BadRequest;
             case EntityNotFoundException:
                 return HttpStatusCode.NotFound;
-            case BusinessRuleValidationException:
-                return HttpStatusCode.Forbidden;           
+            case BusinessRuleViolationException:
+                return HttpStatusCode.Forbidden;
+            case DuplicatedEntityException:
+                return HttpStatusCode.Conflict;
             default:
                 return HttpStatusCode.InternalServerError;
         }

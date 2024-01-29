@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateTruckCommand>());
 
 builder.Services.AddScoped<ITruckRepository, InMemoryRepository>();
+builder.Services.AddScoped<ITruckCodeUniquenessConstraint, InMemoryRepository>();
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();
