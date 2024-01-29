@@ -12,7 +12,7 @@ namespace CustomERP.Trucks.Application
 
         public static TruckDto Create(Truck truck)
         {
-            return new TruckDto(truck.Id.Value, truck.Name, truck.Code.Value, truck.Description, truck.UsageStatus.ToString());
+            return new TruckDto(truck.Id.Value, truck.Code.Value, truck.Name, truck.Description, truck.UsageStatus.ToString());
             // TODO: use automapper for example
         }
 

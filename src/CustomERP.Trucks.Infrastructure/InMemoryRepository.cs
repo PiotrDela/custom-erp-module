@@ -6,6 +6,7 @@ namespace CustomERP.Trucks.Infrastructure
     public class InMemoryRepository : ITruckRepository, ITruckCodeUniquenessConstraint
     {
         private readonly IMemoryCache memoryCache;
+        private static HashSet<Truck> trucks = new HashSet<Truck>();
 
         public InMemoryRepository(IMemoryCache memoryCache)
         {
@@ -16,6 +17,7 @@ namespace CustomERP.Trucks.Infrastructure
         {
             this.memoryCache.Set(entity.Id, entity);
             this.memoryCache.Set(entity.Code, entity);
+            trucks.Add(entity);
 
             return Task.CompletedTask;
         }
@@ -49,6 +51,11 @@ namespace CustomERP.Trucks.Infrastructure
             this.memoryCache.Set(entity.Code, entity);
 
             return Task.CompletedTask;
+        }
+
+        public Task<IEnumerable<Truck>> GetAllAsync()
+        {
+            return Task.FromResult(trucks.AsEnumerable());
         }
     }
 }

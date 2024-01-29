@@ -2,6 +2,7 @@
 using CustomERP.Trucks.Application.CreateTruck;
 using CustomERP.Trucks.Application.DeleteTruck;
 using CustomERP.Trucks.Application.GetTruckById;
+using CustomERP.Trucks.Application.GetTrucks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +28,16 @@ namespace CustomERP.Api.Trucks
         {
             var note = await sender.Send(new GetTruckByIdQuery(id));
             return Ok(note);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetTrucks([FromQuery] GetTrucksQueryParameters parameters)
+        {
+            var trucks = await this.sender.Send(new GetTrucksQuery(parameters));
+            return Ok(trucks);
         }
 
         [HttpPost]
