@@ -11,6 +11,7 @@ namespace CustomERP.Api.Trucks
 {
     [ApiController]
     [Route("api/[controller]")]
+    [TypeFilter<DomainExceptionFilterAttribute>]
     public class TrucksController : Controller
     {
         private readonly ISender sender;
