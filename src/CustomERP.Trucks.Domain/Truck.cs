@@ -25,7 +25,7 @@ public class Truck: Entity
     public string Description { get; }
     public TrackUsageStatus UsageStatus { get; private set; }
 
-    private Truck(TruckId id, TruckCode code, string name, string description, TrackUsageStatus? usageStatus)
+    private Truck(TruckId id, TruckCode code, string name, string description, TrackUsageStatus usageStatus)
     {
         if (string.IsNullOrWhiteSpace(name))
         {
@@ -36,7 +36,7 @@ public class Truck: Entity
         Code = code ?? throw new ArgumentNullException($"{nameof(code)}");
         Name = name;
         Description = description ?? string.Empty;
-        UsageStatus = usageStatus ?? throw new ArgumentException($"{nameof(usageStatus)} cannot be null", nameof(usageStatus)); ;
+        UsageStatus = usageStatus;
     }
 
     public void ChangeStatus(TrackUsageStatus status)

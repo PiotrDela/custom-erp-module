@@ -1,4 +1,5 @@
 using CustomERP.Trucks.Application.CreateTruck;
+using CustomERP.Trucks.Application.GetTrucks;
 using CustomERP.Trucks.Domain;
 using CustomERP.Trucks.Infrastructure;
 
@@ -11,9 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateTruckCommand>());
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetTrucksQueryCommandHandler>());
 
-builder.Services.AddScoped<ITruckRepository, InMemoryRepository>();
-builder.Services.AddScoped<ITruckCodeUniquenessConstraint, InMemoryRepository>();
+builder.Services.AddScoped<ITruckRepository, TruckRepository>();
+builder.Services.AddScoped<ITruckCodeUniquenessConstraint, TruckRepository>();
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();
