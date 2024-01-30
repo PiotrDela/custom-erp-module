@@ -3,6 +3,7 @@ using CustomERP.Trucks.Application.CreateTruck;
 using CustomERP.Trucks.Application.DeleteTruck;
 using CustomERP.Trucks.Application.GetTruckById;
 using CustomERP.Trucks.Application.GetTrucks;
+using CustomERP.Trucks.Application.UpdateTruck;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,11 +44,23 @@ namespace CustomERP.Api.Trucks
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateTruck([FromBody] CreateTruckRequest request)
+        public async Task<IActionResult> CreateTruck([FromBody] CreateTruckRequestDto request)
         {
             var truckId = await sender.Send(new CreateTruckCommand(request.Code, request.Name, request.Description));
             return CreatedAtRoute("GetTruckRoute", new { id = truckId }, null);
+        }
+
+        [HttpPatch]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateTruck([FromBody] UpdateTruckRequestDto request)
+        {
+            await sender.Send(new UpdateTruckCommand(request.Id.Value, request.Code, request.Name, request.Description, request.UsageStatus));
+            return Ok();
         }
 
         [HttpDelete]

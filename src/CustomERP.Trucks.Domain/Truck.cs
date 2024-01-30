@@ -20,9 +20,9 @@ public class Truck: Entity
     }
 
     public TruckId Id { get; }
-    public TruckCode Code { get; }
-    public string Name { get; }
-    public string Description { get; }
+    public TruckCode Code { get; private set; }
+    public string Name { get; private set; }
+    public string Description { get; private set; }
     public TrackUsageStatus UsageStatus { get; private set; }
 
     private Truck(TruckId id, TruckCode code, string name, string description, TrackUsageStatus usageStatus)
@@ -66,6 +66,33 @@ public class Truck: Entity
         }
 
         UsageStatus = status;
+    }
+
+    public void ChangeCode(string newCode, ITruckCodeUniquenessConstraint uniqueConstraint)
+    {
+        var truckCode = TruckCode.Create(newCode);
+
+        if (uniqueConstraint.IsInUse(truckCode))
+        {
+            throw new DuplicatedEntityException("Truck code already in use");
+        }
+
+        this.Code = truckCode;
+    }
+
+    public void ChangeName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new ArgumentException($"{nameof(name)} cannot be null nor empty", nameof(name));
+        }
+
+        this.Name = name;
+    }
+
+    public void ChangeDescription(string description)
+    {
+        this.Description = description;
     }
 }
 

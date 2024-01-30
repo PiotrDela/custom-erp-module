@@ -8,7 +8,7 @@ namespace CustomERP.Trucks.Application
         public string Code { get; }
         public string Name { get; }
         public string Description { get; }
-        public string Status { get; set; }
+        public string Status { get; }
 
         public static TruckDto Create(Truck truck)
         {

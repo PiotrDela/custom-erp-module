@@ -2,11 +2,10 @@
 
 namespace CustomERP.Api.Trucks
 {
-    public class CreateTruckRequest
+    public class CreateTruckRequestDto
     {
-        [Required]
-        // TODO: consider custom validation attribute that will check for alphanumeric string
-        public string Code { get; set; }
+        [Required]        
+        public string Code { get; set; } // TODO: consider custom validation attribute that will check for alphanumeric string
 
         [Required]
         public string Name { get; set; }

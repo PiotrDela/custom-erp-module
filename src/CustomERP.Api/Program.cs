@@ -16,7 +16,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Ge
 
 builder.Services.AddScoped<ITruckRepository, TruckRepository>();
 builder.Services.AddScoped<ITruckCodeUniquenessConstraint, TruckRepository>();
-builder.Services.AddMemoryCache();
+builder.Services.AddScoped<TrucksDbContext>();
 
 var app = builder.Build();
 
