@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomERP.Trucks.Application\CustomERP.Trucks.Application.csproj" />
-    <ProjectReference Include="..\CustomERP.Trucks.Infrastructure\CustomERP.Trucks.Infrastructure.csproj" />
+    <ProjectReference Include="..\CustomERP.Trucks.Api\CustomERP.Trucks.Api.csproj" />
   </ItemGroup>
 
 </Project>

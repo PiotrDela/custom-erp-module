@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Tests", "CustomER
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Api", "CustomERP.Api\CustomERP.Api.csproj", "{1F3F97B4-C484-441E-9C40-01E27798F758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Application", "CustomERP.Trucks.Application\CustomERP.Trucks.Application.csproj", "{FCBC4E46-566F-4173-8172-261886885130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Trucks.Application", "CustomERP.Trucks.Application\CustomERP.Trucks.Application.csproj", "{FCBC4E46-566F-4173-8172-261886885130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Domain", "CustomERP.Trucks.Domain\CustomERP.Trucks.Domain.csproj", "{33B2652E-F238-468A-A401-D9DB3B046526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Trucks.Domain", "CustomERP.Trucks.Domain\CustomERP.Trucks.Domain.csproj", "{33B2652E-F238-468A-A401-D9DB3B046526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Infrastructure", "CustomERP.Trucks.Infrastructure\CustomERP.Trucks.Infrastructure.csproj", "{A6DDCF88-D067-4300-8E0B-4C81C037B313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomERP.Trucks.Infrastructure", "CustomERP.Trucks.Infrastructure\CustomERP.Trucks.Infrastructure.csproj", "{A6DDCF88-D067-4300-8E0B-4C81C037B313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomERP.Trucks.Api", "CustomERP.Trucks.Api\CustomERP.Trucks.Api.csproj", "{97472BF0-C122-4642-BA3B-1803D7E89D4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6DDCF88-D067-4300-8E0B-4C81C037B313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97472BF0-C122-4642-BA3B-1803D7E89D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97472BF0-C122-4642-BA3B-1803D7E89D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97472BF0-C122-4642-BA3B-1803D7E89D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97472BF0-C122-4642-BA3B-1803D7E89D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

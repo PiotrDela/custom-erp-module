@@ -1,6 +1,7 @@
-﻿using CustomERP.Trucks.Infrastructure;
+﻿using CustomERP.Trucks.Application;
+using CustomERP.Trucks.Application.GetTrucks;
 
-namespace CustomERP.Trucks.Application.GetTrucks
+namespace CustomERP.Trucks.Infrastructure
 {
     public class GetTrucksQueryCommandHandler : IQueryHandler<GetTrucksQuery, IEnumerable<TruckDto>>
     {
@@ -13,7 +14,7 @@ namespace CustomERP.Trucks.Application.GetTrucks
 
         public Task<IEnumerable<TruckDto>> Handle(GetTrucksQuery request, CancellationToken cancellationToken)
         {
-            var trucks = this.dbContext.Trucks.AsQueryable();
+            var trucks = dbContext.Trucks.AsQueryable();
 
             if (string.IsNullOrWhiteSpace(request.Parameters.Name) == false)
             {

@@ -3,7 +3,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomERP.Api
+namespace CustomERP.Trucks.Api.Controllers
 {
     public class DomainExceptionFilterAttribute : IExceptionFilter
     {

@@ -1,14 +1,17 @@
-﻿using CustomERP.Trucks.Application;
+﻿using CustomERP.Trucks.Api.Contracts;
+using CustomERP.Trucks.Application;
 using CustomERP.Trucks.Application.CreateTruck;
 using CustomERP.Trucks.Application.DeleteTruck;
 using CustomERP.Trucks.Application.GetTruckById;
 using CustomERP.Trucks.Application.GetTrucks;
 using CustomERP.Trucks.Application.UpdateTruck;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomERP.Api.Trucks
+namespace CustomERP.Trucks.Api.Controllers
 {
+
     [ApiController]
     [Route("api/[controller]")]
     [TypeFilter<DomainExceptionFilterAttribute>]
@@ -38,7 +41,7 @@ namespace CustomERP.Api.Trucks
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetTrucks([FromQuery] GetTrucksQueryParameters parameters)
         {
-            var trucks = await this.sender.Send(new GetTrucksQuery(parameters));
+            var trucks = await sender.Send(new GetTrucksQuery(parameters));
             return Ok(trucks);
         }
 

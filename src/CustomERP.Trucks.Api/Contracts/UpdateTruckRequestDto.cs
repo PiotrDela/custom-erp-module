@@ -1,7 +1,7 @@
 ﻿using CustomERP.Domain.Trucks;
 using System.ComponentModel.DataAnnotations;
 
-namespace CustomERP.Api.Trucks
+namespace CustomERP.Trucks.Api.Contracts
 {
     public class UpdateTruckRequestDto
     {
