@@ -21,6 +21,22 @@ namespace CustomERP.Trucks.Infrastructure
                 trucks = trucks.Where(x => x.Name.Contains(request.Parameters.Name));
             }
 
+            if (request.Parameters.OrderBy.HasValue)
+            {
+                switch (request.Parameters.OrderBy.Value)
+                {
+                    case GetTrucksQuerySortBy.Code:
+                        trucks = trucks.OrderBy(x => x.Code);
+                        break;
+                    case GetTrucksQuerySortBy.Name:
+                        trucks = trucks.OrderBy(x => x.Name);
+                        break;
+                    case GetTrucksQuerySortBy.Status:
+                        trucks = trucks.OrderBy(x => x.UsageStatus);
+                        break;
+                }
+            }
+
             var result = trucks.ToArray();
 
             return Task.FromResult(result.Select(TruckDto.Create));

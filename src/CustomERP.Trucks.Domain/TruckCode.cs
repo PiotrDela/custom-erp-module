@@ -1,6 +1,6 @@
 ﻿namespace CustomERP.Trucks.Domain;
 
-public class TruckCode : IEquatable<TruckCode>
+public class TruckCode : IEquatable<TruckCode>, IComparable<TruckCode>
 {
     public static TruckCode Create(string code)
     {
@@ -42,5 +42,10 @@ public class TruckCode : IEquatable<TruckCode>
     public override bool Equals(object obj)
     {
         return obj is TruckCode truckCode && Equals(truckCode);
+    }
+
+    public int CompareTo(TruckCode other)
+    {
+        return this.Value.CompareTo(other.Value);
     }
 }
